@@ -1,0 +1,7 @@
+<?php
+
+# Copyright (C) 2018 Samir Aguiar for Intra2net AG - www.intra2net.com
+# Licensed under the GNU General Public License 3.0
+
+$s_plugin_ProjectNotifications_title = 'Project Notifications';
+$s_plugin_ProjectNotifications_description = 'Enable per-project notifications';
