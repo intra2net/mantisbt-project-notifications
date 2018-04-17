@@ -32,12 +32,5 @@
  * according to Mantis' settings.
  */
 $notification_config = array(
-    "project1" => array(
-        "samir" => ["resolved"],
-        "samir2" => ["new", "reopened", "closed"]
-    ),
-    "project2" => array(
-        "samir" => ["bugnote", "acknowledged", "new"],
-        "samir2" => ["new", "reopened", "closed"]
-    )
+    "project2" => array("samir", "samir2")
 );

@@ -57,12 +57,10 @@ class ProjectNotificationsPlugin extends MantisPlugin {
             return $users_to_include;
         }
 
-        foreach ( $t_project_config as $username => $enabled_notifications ) {
-            if ( in_array( $p_notify_type, $enabled_notifications ) ) {
-                $t_user_id = user_get_id_by_name( $username );
-                array_push( $users_to_include, $t_user_id );
-                log_event( LOG_PLUGIN, "user '%s' added as notification recipient for project %s", $username, $t_project_name );
-            }
+        foreach ( $t_project_config as $username ) {
+            $t_user_id = user_get_id_by_name( $username );
+            array_push( $users_to_include, $t_user_id );
+            log_event( LOG_PLUGIN, "user '%s' added as notification recipient for project %s", $username, $t_project_name );
         }
 
         return $users_to_include;
@@ -90,14 +88,9 @@ class ProjectNotificationsPlugin extends MantisPlugin {
             return $t_return;
         }
 
-        $user_config = $project_config[$t_username];
-        if ( !is_array( $user_config ) ) {
-            log_event( LOG_PLUGIN, "notification settings for user %s don't exist for project %s", $t_username, $t_project_name );
-            return $t_return;
-        }
-
         // Only change notification settings if all sanity checks passed
-        if ( in_array( $p_notify_type, $user_config ) ) {
+        if ( in_array( $t_username, $project_config ) ) {
+            log_event( LOG_PLUGIN, "user %s notifications settings for project %s set to ON", $t_username, $t_project_name );
             $t_return[0] = ON;
         }
 
@@ -125,6 +118,11 @@ class ProjectNotificationsPlugin extends MantisPlugin {
 
         if ( !is_array( $notification_config ) ) {
             log_event( LOG_PLUGIN, "invalid notification settings, falling back to mantis settings" );
+            return null;
+        }
+
+        if ( !array_key_exists( $p_project_name, $notification_config ) ) {
+            log_event( LOG_PLUGIN, "notification settings for project %s don't exist", $p_project_name );
             return null;
         }
 
