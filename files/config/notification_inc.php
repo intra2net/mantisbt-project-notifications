@@ -24,9 +24,10 @@
 
 /*
  * `$notification_config` is an array of projects and each project
- * is an array of users. Each user is then an array with the names
- * of notifications that should **not** be sent to *that* user for
- * *that* project.
+ * is an array of users. Those are users that will receive notifications
+ * for those projects. Note that you also need to disable notifications
+ * on Mantis, otherwise you'll keep receiving notifications for every
+ * project.
  * 
  * For projects and users not set here notifications will be sent
  * according to Mantis' settings.
