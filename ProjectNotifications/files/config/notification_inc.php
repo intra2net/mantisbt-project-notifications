@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Project Notifications - a MantisBT plugin that adds a reply button to issues
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Project Notifications.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @copyright Copyright (C) 2020 Intra2net AG - www.intra2net.com
+ */
+
 /*
  * Notification types:
  * +--------------------------------------------------------------------+
@@ -28,7 +37,7 @@
  * for those projects. Note that you also need to disable notifications
  * on Mantis, otherwise you'll keep receiving notifications for every
  * project.
- * 
+ *
  * For projects and users not set here notifications will be sent
  * according to Mantis' settings.
  */

@@ -1,13 +1,12 @@
 <?php
 
-# ProjectNotifications - a MantisBT plugin that enables customization
-# of e-mail notifications on a per-project basis
-#
-# You should have received a copy of the GNU General Public License
-# along with ProjectNotifications.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * @copyright Copyright (C) 2018 Samir Aguiar for Intra2net AG - www.intra2net.com
+ * Project Notifications - a MantisBT plugin that adds a reply button to issues
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Project Notifications.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @copyright Copyright (C) 2020 Intra2net AG - www.intra2net.com
  */
 
 require_api( 'bug_api.php' );
@@ -28,9 +27,9 @@ class ProjectNotificationsPlugin extends MantisPlugin {
             "MantisCore" => "2.5.0",
         );
 
-        $this->author = "Samir Aguiar";
-        $this->contact = "samirjaguiar@gmail.com";
-        $this->url = "https://github.com/samiraguiar/project-notifications";
+        $this->author = "Intra2net AG";
+        $this->contact = "opensource@intra2net.com";
+        $this->url = "https://github.com/intra2net/mantisbt-project-notifications";
     }
 
     public function hooks() {
@@ -41,7 +40,7 @@ class ProjectNotificationsPlugin extends MantisPlugin {
     }
 
     /**
-     * 
+     *
     * @param string $p_event_name  Event name.
     * @param integer $p_bug_id Bug id.
     * @param string $p_notify_type Notification type.
@@ -67,7 +66,7 @@ class ProjectNotificationsPlugin extends MantisPlugin {
     }
 
     /**
-     * 
+     *
     * @param string $p_event_name  Event name.
     * @param string $p_notify "1" if user should be notified, false otherwise.
     * @param string $p_pref_field Field in the database representing this notification settings.
