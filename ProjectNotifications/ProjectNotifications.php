@@ -22,9 +22,9 @@ class ProjectNotificationsPlugin extends MantisPlugin {
         $this->description = plugin_lang_get( "description" );
         $this->page = '';
 
-        $this->version = "1.0";
+        $this->version = "1.0.0";
         $this->requires = array(
-            "MantisCore" => "2.5.0",
+            "MantisCore" => "2.1.0",
         );
 
         $this->author = "Intra2net AG";
